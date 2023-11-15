@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Todo app</title>
+  </head>
+  <body>
+    <header>
+      <h1>Todo</h1>
+      <button class="theme-switcher">btn</button>
+    </header>
+    <main>
+      <!--***********Add task **************************--------->
+      <form>
+        <input type="text" />
+        <button type="submit">send</button>
+      </form>
+      <!--**********Task management-->
+      <section id="tasks-management">
+        <div id="tasks-wrap">
+          <div class="single-task">
+            <button class="Completed">completed</button>
+            <h3>new task</h3>
+            <button class="delete">delete</button>
+          </div>
+        </div>
+        <!----**********Filters ***********************-->
+        <div class="filters">
+          <span>items left</span>
+          <div class="filter-btn">
+            <button class="all">All</button>
+            <button class="active">Active</button>
+            <button class="completed">Completed</button>
+          </div>
+          <button class="clear-completed">Clear Completed</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </footer>
+  </body>
+</html>
