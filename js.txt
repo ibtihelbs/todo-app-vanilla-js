@@ -1,0 +1,137 @@
+// Variables to store references to HTML elements
+var todoForm = document.querySelector("form");
+var todoInput = document.getElementById("add");
+var tasksWrap = document.getElementById("tasks-wrap");
+var filterButtons = document.querySelector(".filter-btn");
+var clearCompletedBtn = document.querySelector(".clear-completed");
+
+// Event listener for form submission
+todoForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  // Create a new task element
+  var newTask = document.createElement("div");
+  console.log(newTask);
+  newTask.className = "single-task flex between";
+
+  // Create task content
+  var taskContent = document.createElement("div");
+  taskContent.className = "flex";
+
+  // Create checkbox
+  var checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.className = "state";
+
+  // Create task name
+  var taskName = document.createElement("p");
+  taskName.textContent = todoInput.value;
+
+  // Create delete button
+  var deleteBtn = document.createElement("button");
+  deleteBtn.className = "delete";
+  deleteBtn.innerHTML =
+    '<img src="./images/icon-cross.svg" alt="icon-cross" />';
+
+  // Append elements to taskContent
+  taskContent.appendChild(checkbox);
+  taskContent.appendChild(taskName);
+
+  // Append elements to newTask
+  newTask.appendChild(taskContent);
+  newTask.appendChild(deleteBtn);
+
+  // Append newTask to tasksWrap
+  tasksWrap.appendChild(newTask);
+
+  // Clear the input field
+  todoInput.value = "";
+});
+
+// Event delegation for handling task completion and deletion
+tasksWrap.addEventListener("click", function (event) {
+  var target = event.target;
+  var btn = target.closest("button");
+  var completedBtn = target.closest("input");
+  console.log(btn, completedBtn);
+  // Check if the completed button is clicked
+  if (target.classList.contains("state")) {
+    // Toggle the completed class on the parent task element
+    target.parentNode.parentNode.classList.toggle("completed");
+  }
+
+  // Check if the delete button is clicked
+  if (target.classList.contains("delete")) {
+    // Remove the parent task element
+    target.parentNode.parentNode.remove();
+  }
+});
+
+// Event delegation for handling filter buttons
+filterButtons.addEventListener("click", function (event) {
+  var target = event.target;
+
+  // Check which filter button is clicked
+  if (target.classList.contains("all")) {
+    showAllTasks();
+  } else if (target.classList.contains("active")) {
+    showActiveTasks();
+  } else if (target.classList.contains("completed")) {
+    showCompletedTasks();
+  }
+});
+
+// Event listener for clearing completed tasks
+clearCompletedBtn.addEventListener("click", function () {
+  var completedTasks = document.querySelectorAll(".completed");
+  completedTasks.forEach(function (task) {
+    task.remove();
+  });
+});
+
+// Function to show all tasks
+function showAllTasks() {
+  var allTasks = document.querySelectorAll(".single-task");
+  allTasks.forEach(function (task) {
+    task.style.display = "flex";
+  });
+}
+
+// Function to show active tasks
+function showActiveTasks() {
+  var completedTasks = document.querySelectorAll(".completed");
+  completedTasks.forEach(function (task) {
+    task.style.display = "none";
+  });
+
+  showAllTasks();
+}
+
+// Function to show completed tasks
+function showCompletedTasks() {
+  var activeTasks = document.querySelectorAll(".single-task:not(.completed)");
+  activeTasks.forEach(function (task) {
+    task.style.display = "none";
+  });
+
+  showAllTasks();
+}
+////////////////////////////////////////////////////////////////
+
+
+ add.value = "";
+  const deleteBtns = document.querySelectorAll(".delete");
+  const singleTasks = document.querySelectorAll(".single-task");
+  const tasks = document.querySelectorAll("p");
+  const checked = document.querySelectorAll(".state");
+  console.log(singleTasks);
+  for (let i = 0; i < deleteBtns.length; i++) {
+    const toDelete = deleteBtns[i];
+    console.log(toDelete, tasks, checked);
+    toDelete.addEventListener("click", function (ev) {
+      singleTasks[i].style.display = "none";
+    });
+    checked[i].addEventListener("change", function () {
+      tasks[i].style.textDecoration = "line-through";
+    });
+  }

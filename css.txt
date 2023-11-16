@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+* {
+  font-family: "Josefin Sans", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --Bright-Blue: hsl(220, 98%, 61%);
+  --linear-gradient: linear-gradient(
+    45deg,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  /****### Light Theme****/
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+  --Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+  --Light-Grayish-Blue: hsl(233, 11%, 84%);
+  --Dark-Grayish-Blue: hsl(236, 9%, 61%);
+  --Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+  /****### Dark Theme****/
+  --Very-Dark-Blue: hsl(235, 21%, 11%);
+  --Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+  --Light-Grayish-Blue: hsl(234, 39%, 85%);
+  --Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
+  --Dark-Grayish-Blue: hsl(234, 11%, 52%);
+  --Very-Dark-Grayish-Blue-1: hsl(233, 14%, 35%);
+  --Very-Dark-Grayish-Blue-2: hsl(237, 14%, 26%);
+}
+body {
+  background-color: var(--Very-Dark-Blue);
+  background-image: url(./images/bg-desktop-dark.jpg);
+  background-repeat: no-repeat;
+  color: var(--Light-Grayish-Blue);
+}
+button {
+  border: none;
+  color: var(--white);
+  background-color: transparent;
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 400px;
+}
+
+main {
+  background-color: var(--Very-Dark-Desaturated-Blue);
+}
+form,
+.filters,
+.single-task {
+  padding: 8px 16px;
+}
+.flex {
+  display: flex;
+}
+.flex-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+}
+/* Hide the default checkbox */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  border: none;
+}
+
+/* Create a circular container for the checkbox */
+input[type="checkbox"]::before {
+  content: "";
+  display: inline-block;
+  width: 20px; /* Adjust the size of the circle */
+  height: 20px; /* Adjust the size of the circle */
+  border: var(--Text) 2px solid; /* Border color */
+  border-radius: 50%; /* Make it circular */
+  margin-right: 5px; /* Add some space between the circle and label */
+
+}
+
+/* Style the checked state */
+input[type="checkbox"]:checked::before {
+  background-color: var(--Underline); /* Fill the circle when checked */
+  background-image: url(./images/icon-check.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+  background: linear-gradient(45deg, var(--linear-gradient-start), var(--linear-gradient-end));
