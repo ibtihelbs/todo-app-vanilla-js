@@ -73,3 +73,16 @@ function createNewTask(e) {
   });
 }
 form.addEventListener("submit", createNewTask);
+const themeSwitcher = document.querySelector(".theme-switcher");
+const body = document.body;
+const img = document.querySelector("img");
+themeSwitcher.addEventListener("click", function (e) {
+  e.preventDefault();
+  body.classList.toggle("light-theme");
+  console.log(body.classList.contains("light"));
+  if (body.classList.contains("light-theme")) {
+    img.setAttribute("src", "./images/icon-moon.svg");
+  } else {
+    img.setAttribute("src", "./images/icon-sun.svg");
+  }
+});
